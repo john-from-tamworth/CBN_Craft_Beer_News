@@ -1,18 +1,22 @@
+import { Navbar } from '../../components/Navbar';
 import styles from '../../styles/News.module.css';
 
 export const News = ({ pageNumber, articles }) => {
   return (
-    <div className={styles.main}>
-      {articles.map((article, index) => (
-        <div key={index} className={styles.post}>
-          <h1 onClick={() => (window.location.href = article.url)}>
-            {article.title}
-          </h1>
-          <p>{article.description}</p>
-          {!!article.urlToImage && <img src={article.urlToImage} />}
-        </div>
-      ))}
-    </div>
+    <>
+      <Navbar />
+      <div className={styles.main}>
+        {articles.map((article, index) => (
+          <div key={index} className={styles.post}>
+            <h1 onClick={() => (window.location.href = article.url)}>
+              {article.title}
+            </h1>
+            <p>{article.description}</p>
+            {!!article.urlToImage && <img src={article.urlToImage} />}
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
